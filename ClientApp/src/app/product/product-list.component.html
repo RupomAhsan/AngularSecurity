@@ -1,0 +1,46 @@
+<div class="row container">
+  <div class="col-xs-12">
+    <h1>Product List</h1>
+  </div>
+</div>
+
+<div class="row" *ngIf="products && products.length" class="container">
+  <div class="col-xs-12">
+    <button class="btn btn-primary" (click)="addProduct()">
+      Add New Product
+    </button>
+  </div>
+</div>
+
+<div *ngIf="products && products.length" class="container">
+  <table class="table table-dark table-hover table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th>Edit</th>
+        <th>Product Name</th>
+        <th>Introduction Date</th>
+        <th class="text-right">Price</th>
+        <th>URL</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>
+          <a href="#" class="btn btn-primary" [routerLink]="['/productDetail', product.productId]">
+            <i class="fa fa-pencil"></i>
+          </a>
+        </td>
+        <td>{{product.productName}}</td>
+        <td>{{product.introductionDate | date:"MM/dd/yyyy"}}</td>
+        <td class="text-right">{{product.price | currency}}</td>
+        <td>{{product.url | lowercase}}</td>
+        <td>
+          <button (click)="deleteProduct(product.productId)" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

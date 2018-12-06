@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CFEApi", "CFEApi.csproj", "{753E0237-BDB3-4F75-AED6-4070510BC8E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{753E0237-BDB3-4F75-AED6-4070510BC8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{753E0237-BDB3-4F75-AED6-4070510BC8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{753E0237-BDB3-4F75-AED6-4070510BC8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{753E0237-BDB3-4F75-AED6-4070510BC8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B6250F5-919C-4A7F-92F4-ED6953D9C84F}
+	EndGlobalSection
+EndGlobal

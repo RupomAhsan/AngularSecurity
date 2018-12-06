@@ -1,0 +1,14 @@
+C:\Ahsan\Practice\CFE\CFEApi\bin\Debug\netcoreapp2.2\CFEApi.deps.json
+C:\Ahsan\Practice\CFE\CFEApi\bin\Debug\netcoreapp2.2\CFEApi.runtimeconfig.json
+C:\Ahsan\Practice\CFE\CFEApi\bin\Debug\netcoreapp2.2\CFEApi.runtimeconfig.dev.json
+C:\Ahsan\Practice\CFE\CFEApi\bin\Debug\netcoreapp2.2\CFEApi.dll
+C:\Ahsan\Practice\CFE\CFEApi\bin\Debug\netcoreapp2.2\CFEApi.pdb
+C:\Ahsan\Practice\CFE\CFEApi\obj\Debug\netcoreapp2.2\CFEApi.csproj.CoreCompileInputs.cache
+C:\Ahsan\Practice\CFE\CFEApi\obj\Debug\netcoreapp2.2\CFEApi.RazorAssemblyInfo.cache
+C:\Ahsan\Practice\CFE\CFEApi\obj\Debug\netcoreapp2.2\CFEApi.RazorAssemblyInfo.cs
+C:\Ahsan\Practice\CFE\CFEApi\obj\Debug\netcoreapp2.2\CFEApi.AssemblyInfoInputs.cache
+C:\Ahsan\Practice\CFE\CFEApi\obj\Debug\netcoreapp2.2\CFEApi.AssemblyInfo.cs
+C:\Ahsan\Practice\CFE\CFEApi\obj\Debug\netcoreapp2.2\CFEApi.RazorTargetAssemblyInfo.cache
+C:\Ahsan\Practice\CFE\CFEApi\obj\Debug\netcoreapp2.2\CFEApi.dll
+C:\Ahsan\Practice\CFE\CFEApi\obj\Debug\netcoreapp2.2\CFEApi.pdb
+C:\Ahsan\Practice\CFE\CFEApi\obj\Debug\netcoreapp2.2\CFEApi.csprojAssemblyReference.cache
