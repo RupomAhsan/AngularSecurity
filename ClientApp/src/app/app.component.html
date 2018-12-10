@@ -12,17 +12,21 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/products">Products</a>
+        <a class="nav-link" routerLink="/products" *ngIf="securityObject.canAccessProduct">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/categories">Categories</a>
+        <a class="nav-link" routerLink="/categories" *ngIf="securityObject.canAccessCategories">Categories</a>
       </li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
       <li>
-        <a routerLink="/login" class="nav-link">
+        <a routerLink="/login" class="nav-link" *ngIf="!securityObject.isAuthenticated">
           Login
         </a>
+        <a href="#" class="nav-link" (onclick)="logout()" *ngIf="securityObject.isAuthenticated">
+          Logout {{securityObject.userName}}
+        </a>
+
       </li>
 
     </ul>

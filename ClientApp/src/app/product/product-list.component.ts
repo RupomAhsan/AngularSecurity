@@ -3,15 +3,23 @@ import { Router } from '@angular/router';
 
 import { Product } from './product';
 import { ProductService } from './product.service';
+import { AppUserAuth } from '../security/app-user-auth';
+import { SecurityService } from '../_services/security.service';
 
 @Component({
   templateUrl: './product-list.component.html'
 })
 export class ProductListComponent implements OnInit {
   products: Product[];
+  securityObject: AppUserAuth = null;
+
 
   constructor(private productService: ProductService,
-    private router: Router) { }
+    private router: Router,
+    private securityService: SecurityService) {
+
+    this.securityObject = securityService.securityObject;
+  }
 
   ngOnInit() {
     this.getProducts();
@@ -29,7 +37,7 @@ export class ProductListComponent implements OnInit {
   deleteProduct(id: number): void {
     if (confirm("Delete this product?")) {
       this.productService.deleteProduct(id)
-        .subscribe(() => this.products = this.products.filter(p => p.productId != id));
+        .subscribe(() => this.products = this.products.filter(p => p.productId !== id));
     }
   }
 }
