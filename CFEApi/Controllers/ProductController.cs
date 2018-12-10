@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using CFEApi.Model;
 using CFEApi.Controllers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CFEApi.Controllers
 {
@@ -13,6 +14,7 @@ namespace CFEApi.Controllers
   public class ProductController : BaseApiController
   {
     [HttpGet]
+    [Authorize]
     public IActionResult Get()
     {
       IActionResult ret = null;
