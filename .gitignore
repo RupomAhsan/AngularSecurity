@@ -39,3 +39,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+CFEApi/bin/Debug/netcoreapp2.2/CFEApi.dll
+CFEApi/bin/Debug/netcoreapp2.2/CFEApi.dll
+CFEApi/bin/Debug/netcoreapp2.2/CFEApi.pdb
+CFEApi/obj/Debug/netcoreapp2.2/CFEApi.dll
+CFEApi/obj/Debug/netcoreapp2.2/CFEApi.pdb
+CFEApi/obj/Debug/netcoreapp2.2/CFEApi.csproj.CoreCompileInputs.cache
+CFEApi/bin/Debug/netcoreapp2.2/CFEApi.dll

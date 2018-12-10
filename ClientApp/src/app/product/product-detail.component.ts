@@ -35,16 +35,15 @@ export class ProductDetailComponent implements OnInit {
   }
 
   private createOrLoadProduct(id: number) {
-    if (id == -1) {
+    if (id === -1) {
       // Create new product object
       this.initProduct();
-    }
-    else {
+    } else {
       // Get a product from product service
       this.productService.getProduct(id)
         .subscribe(product => {
           this.product = product;
-          this.originalProduct = Object.assign({}, this.product)
+          this.originalProduct = Object.assign({}, this.product);
         });
     }
   }
@@ -71,8 +70,7 @@ export class ProductDetailComponent implements OnInit {
         .subscribe(product => { this.product = product },
           () => null,
           () => this.dataSaved());
-    }
-    else {
+    } else {
       // Add a product
       this.productService.addProduct(this.product)
         .subscribe(product => { this.product = product },

@@ -3,6 +3,17 @@ import { AppUserAuth } from '../security/app-user-auth';
 import { AppUser } from '../security/app-user';
 import { Observable, of } from 'rxjs';
 import { LOGIN_MOCKS } from '../security/login-mocks';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { tap } from 'rxjs/operators/tap';
+
+
+const API_URL = "http://localhost:5000/api/security/";
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +21,9 @@ import { LOGIN_MOCKS } from '../security/login-mocks';
 export class SecurityService {
   securityObject: AppUserAuth = new AppUserAuth();
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+
+  }
 
   resetSecurityObject(): void {
     this.securityObject.userName = "";
@@ -28,14 +41,17 @@ export class SecurityService {
     // Initialize security object
     this.resetSecurityObject();
 
-    // Use object assign to update the current object
-    // NOTE: Dont's create a new AppUserAuth object, because that destroys all references to object
-    Object.assign(this.securityObject, LOGIN_MOCKS.find(user => user.userName.toLowerCase() === entity.userName.toLowerCase()));
 
-    if (this.securityObject.userName !== "") {
-      // Store token into local storage
-      localStorage.setItem("bearerToken", this.securityObject.bearerToken);
-    }
+    return this.http.post<AppUserAuth>(API_URL + "login", entity, httpOptions).pipe(
+      tap(resp => {
+
+        // Use object assign to update the current object
+        // NOTE: Dont's create a new AppUserAuth object, because that destroys all references to object
+        Object.assign(this.securityObject, resp);
+        // Store into local storage
+        localStorage.setItem("bearerTokern", this.securityObject.bearerToken);
+      })
+    );
 
     return of<AppUserAuth>(this.securityObject);
   }

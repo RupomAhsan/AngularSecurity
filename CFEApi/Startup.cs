@@ -48,7 +48,7 @@ namespace CFEApi
 
             app.UseCors(
               options => options.WithOrigins(
-                "http://localhost:4200").AllowAnyMethod().AllowAnyHeader()
+                "http://localhost:4201").AllowAnyMethod().AllowAnyHeader()
             );
 
             //app.UseHttpsRedirection();
