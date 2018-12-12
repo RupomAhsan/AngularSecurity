@@ -14,6 +14,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './security/login/login.component';
 import { AuthGuard } from './security/auth.guard';
 import { HttpInterceptorModule } from './security/http-interceptors';
+import { HasClaimDirective } from './security/has-claim.directive';
+import { SecurityService } from './_services/security.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { HttpInterceptorModule } from './security/http-interceptors';
     CategoryListComponent,
     DashboardComponent,
     LoginComponent,
+    HasClaimDirective
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { HttpInterceptorModule } from './security/http-interceptors';
     AppRoutingModule,
     HttpInterceptorModule
   ],
-  providers: [ProductService, CategoryService, AuthGuard],
+  providers: [ProductService, CategoryService, SecurityService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

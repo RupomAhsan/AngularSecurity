@@ -70,24 +70,9 @@ namespace CFEApi.Security
         ret.BearerToken = new Guid().ToString();
 
         // Get all claims for this user
-        claims = GetUserClaims(authUser);
+        ret.Claims = GetUserClaims(authUser);
 
-        // Loop through all claims and 
-        // set properties of user object
-        foreach (AppUserClaim claim in claims)
-        {
-            try
-            {
-            // TODO: Check data type of ClaimValue
-            typeof(AppUserAuth).GetProperty(claim.ClaimType)
-                .SetValue(ret, Convert.ToBoolean(claim.ClaimValue), null);
-            }
-            catch
-            {
-            }
-        }
-
-            ret.BearerToken = BuildJwtToken(ret);
+        ret.BearerToken = BuildJwtToken(ret);
 
         return ret;
         }
@@ -103,11 +88,13 @@ namespace CFEApi.Security
 
             // Custom claims
             jwtclaims.Add(new Claim("isAuthenticated", authUser.IsAuthenticated.ToString().ToLower()));
-            jwtclaims.Add(new Claim("canAccessProduct", authUser.IsAuthenticated.ToString().ToLower()));
-            jwtclaims.Add(new Claim("canAddProduct", authUser.IsAuthenticated.ToString().ToLower()));
-            jwtclaims.Add(new Claim("canSaveProduct", authUser.IsAuthenticated.ToString().ToLower()));
-            jwtclaims.Add(new Claim("canAccessCategories", authUser.IsAuthenticated.ToString().ToLower()));
-            jwtclaims.Add(new Claim("canAddCategories", authUser.IsAuthenticated.ToString().ToLower()));
+
+
+            // Add Custom claims from the Claim array
+            foreach (var claim in authUser.Claims)
+            {
+                jwtclaims.Add(new Claim(claim.ClaimType, claim.ClaimValue));
+            }
 
             // Create the JwtSecurityToken object
             var token = new JwtSecurityToken(

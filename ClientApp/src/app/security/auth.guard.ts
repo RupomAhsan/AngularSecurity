@@ -3,25 +3,25 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { Observable } from 'rxjs';
 import { SecurityService } from '../_services/security.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private securityService: SecurityService, private router: Router) {
-
-  }
+  constructor(private securityService: SecurityService,
+    private router: Router) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    // Get property name on security object to check
     let claimType: string = next.data["claimType"];
 
     if (this.securityService.securityObject.isAuthenticated
-      && this.securityService.securityObject[claimType]) {
+      && this.securityService.hasClaim(claimType)) {
       return true;
     }
     else {
-      this.router.navigate(['login'], { queryParams: { returnUrl: state.url } });
+      this.router.navigate(['login'],
+        { queryParams: { returnUrl: state.url } });
+      return false;
     }
   }
 }
