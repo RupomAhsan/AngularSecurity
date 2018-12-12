@@ -49,7 +49,7 @@ export class SecurityService {
         // NOTE: Dont's create a new AppUserAuth object, because that destroys all references to object
         Object.assign(this.securityObject, resp);
         // Store into local storage
-        localStorage.setItem("bearerTokern", this.securityObject.bearerToken);
+        localStorage.setItem("bearerToken", this.securityObject.bearerToken);
       })
     );
 

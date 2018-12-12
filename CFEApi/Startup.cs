@@ -60,6 +60,12 @@ namespace CFEApi
                 };
             });
 
+            services.AddAuthorization(cfg =>
+            {
+                // NOTE: The claim type and value are case-sensitive
+                cfg.AddPolicy("CanAccessProduct", p => p.RequireClaim("CanAccessProduct", "true"));
+            });
+
             services.AddCors();
 
             services.AddMvc()

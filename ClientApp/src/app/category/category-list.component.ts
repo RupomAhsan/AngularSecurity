@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from './category';
-import { CategoryService } from './category.service';
+import { CategoryService } from '../_services/category.service';
 import { AppUserAuth } from '../security/app-user-auth';
 import { SecurityService } from '../_services/security.service';
 

@@ -6,13 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product-list.component';
 import { ProductDetailComponent } from './product/product-detail.component';
-import { ProductService } from './product/product.service';
-import { CategoryService } from './category/category.service';
+import { ProductService } from './_services/product.service';
+import { CategoryService } from './_services/category.service';
 import { CategoryListComponent } from './category/category-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './security/login/login.component';
 import { AuthGuard } from './security/auth.guard';
+import { HttpInterceptorModule } from './security/http-interceptors';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AuthGuard } from './security/auth.guard';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpInterceptorModule
   ],
   providers: [ProductService, CategoryService, AuthGuard],
   bootstrap: [AppComponent]

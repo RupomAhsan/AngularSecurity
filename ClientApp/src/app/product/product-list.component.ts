@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Product } from './product';
-import { ProductService } from './product.service';
+import { ProductService } from '../_services/product.service';
 import { AppUserAuth } from '../security/app-user-auth';
 import { SecurityService } from '../_services/security.service';
 

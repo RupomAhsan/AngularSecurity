@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { ProductService } from "./product.service";
+import { ProductService } from "../_services/product.service";
 import { Product } from './product';
 import { Category } from '../category/category';
-import { CategoryService } from '../category/category.service';
+import { CategoryService } from '../_services/category.service';
 import { AppUserAuth } from '../security/app-user-auth';
 import { SecurityService } from '../_services/security.service';
 

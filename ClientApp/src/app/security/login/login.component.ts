@@ -19,18 +19,17 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.securityService.login(this.user).subscribe(
-      resp => {
+    this.securityService.login(this.user)
+      .subscribe(resp => {
         this.securityObject = resp;
         if (this.returnUrl) {
           this.router.navigateByUrl(this.returnUrl);
         }
       },
-      () => {
-        // Initialize security object to display error message
-        this.securityObject = new AppUserAuth();
-      }
-    );
+        () => {
+          // Initialize security object to display error message
+          this.securityObject = new AppUserAuth();
+        });
   }
 
   ngOnInit() {
